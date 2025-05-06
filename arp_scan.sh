@@ -1,3 +1,5 @@
+#!/bin/bash
+
 W=$(ip a | grep " UP" | cut -d ' ' -f2 | sed 's/://'); macc=$(ifconfig "$W" down; macchanger -r "$W"; ifconfig "$W" up); echo -e "\n\033[0;32m$macc\033[0m"
 newip=$(ifconfig | grep "broadcast" | cut -d ' ' -f10); echo -e "\033[0;32m$newip\033[0m"
 sleep 1
